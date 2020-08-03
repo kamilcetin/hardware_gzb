@@ -20,6 +20,8 @@ find_package(catkin REQUIRED
   copilotROSInterface
   underwater_sensor_msgs
   trajectory_msgs
+  nav_msgs
+  geometry_msgs
   #roslib
   #orocos_kdl
 )
@@ -28,8 +30,17 @@ find_package(catkin REQUIRED
 
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES kuka gamma stewart falcon ur3
-  CATKIN_DEPENDS roscpp message_runtime iiwa_msgs sensor_msgs copilotROSInterface  underwater_sensor_msgs trajectory_msgs control_msgs
+  LIBRARIES kuka gamma stewart falcon ur3 rexrov2
+  CATKIN_DEPENDS 
+  roscpp 
+  message_runtime 
+  iiwa_msgs sensor_msgs 
+  copilotROSInterface  
+  underwater_sensor_msgs 
+  trajectory_msgs 
+  control_msgs
+  nav_msgs
+  geometry_msgs
 #  DEPENDS system_lib
 )
 
@@ -49,14 +60,6 @@ target_link_libraries(kuka ${catkin_LIBRARIES})
 add_library(gamma src/gamma.cpp)
 target_link_libraries(gamma ${catkin_LIBRARIES})
 
-# Define a library target called stewart
-add_library(stewart src/stewart.cpp)
-target_link_libraries(stewart ${catkin_LIBRARIES})
-
-# Define a library target called falcon
-add_library(falcon src/falcon.cpp)
-target_link_libraries(falcon ${catkin_LIBRARIES})
-
-# Define a library target called ur3
-add_library(ur3 src/ur3.cpp)
-target_link_libraries(ur3 ${catkin_LIBRARIES})
+# Define a library target called rexrov2
+add_library(rexrov2 src/rexrov2.cpp)
+target_link_libraries(rexrov2 ${catkin_LIBRARIES})
